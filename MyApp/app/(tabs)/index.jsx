@@ -18,11 +18,19 @@ const app = () => {
         style={styles.image}
       >
         <Text style={styles.title}>Coffee Shop</Text>
-        <Link href={"/explore"} style={{ marginHorizontal: "auto" }} asChild>
-          <Pressable style={styles.buttonStyles}>
-            <Text style={styles.buttonText}>Explore</Text>
-          </Pressable>
-        </Link>
+
+        <View style={styles.flex}>
+          <Link href={"/explore"} style={{ marginHorizontal: "auto" }} asChild>
+            <Pressable style={styles.buttonStyles}>
+              <Text style={styles.buttonText}>Explore</Text>
+            </Pressable>
+          </Link>
+          <Link href={"/contact"} style={{ marginHorizontal: "auto" }} asChild>
+            <Pressable style={styles.buttonStyles}>
+              <Text style={styles.buttonText}>Contact US</Text>
+            </Pressable>
+          </Link>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -72,5 +80,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     padding: 4,
+  },
+  flex: {
+    flexDirection: "row",
   },
 });
