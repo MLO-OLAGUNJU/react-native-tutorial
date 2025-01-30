@@ -12,9 +12,19 @@ import { useState } from "react";
 import { data } from "@/data/todo";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
+import { Inter_500Medium, useFonts } from "@expo-google-fonts/inter";
+
 export default function Index() {
   const [todos, setTodos] = useState(data.sort((a, b) => b.id - a.id));
   const [text, setText] = useState("");
+
+  const [loaded, error] = useFonts({
+    Inter_500Medium,
+  });
+
+  if (!loaded && !error) {
+    return null;
+  }
 
   const addTodo = () => {
     if (text.trim()) {
@@ -113,12 +123,14 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 18,
     color: "white",
+    fontFamily: "Inter_500Medium",
   },
   completedText: {
     textDecorationLine: "line-through",
     color: "gray",
   },
   input: {
+    fontFamily: "Inter_500Medium",
     flex: 1,
     borderColor: "gray",
     borderWidth: 1,
