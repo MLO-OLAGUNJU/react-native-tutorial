@@ -8,15 +8,12 @@ export default function RootLayout() {
       <SafeAreaProvider>
         <Stack
           screenOptions={{
-            headerTitleStyle: {
-              fontSize: 40,
-              fontWeight: "bold",
-              color: "blue",
-              textAlign: "center",
-            },
-            headerTitle: "Todo List App",
+            headerShown: false,
           }}
-        />
+        >
+          <Stack.Screen name="index" />
+          <Stack.Screen name="todos/[id]" />
+        </Stack>
       </SafeAreaProvider>
     </ThemeProvider>
   );
